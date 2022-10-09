@@ -9,17 +9,19 @@ renderer.link = function(href, title, text) {
 };
 
 function parseMarkdown() {
-	$('#preview').html(marked($('#editor').val(), {
+	document.querySelector('#preview').innerHTML = marked(document.querySelector('#editor').value, {
 		renderer: renderer,
 		gfm: true,
 		breaks: true
-	}));
+	});
 }
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', (event) => {
 	parseMarkdown();
 
-	$('#editor').on('change keypress keyup keydown', function() {
-		parseMarkdown();
+	['change', 'keypress', 'keyup', 'keydown'].forEach((type) => {
+		document.querySelector('#editor').addEventListener(type, (event2) => {
+			parseMarkdown();
+		});
 	});
 });
