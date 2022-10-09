@@ -21,5 +21,5 @@ $(document).ready(function() {
 
 	$('#editor').on('change keypress keyup keydown', function() {
 		parseMarkdown();
-	})
+	});
 });
