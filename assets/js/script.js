@@ -9,7 +9,7 @@ renderer.link = function(href, title, text) {
 };
 
 function parseMarkdown() {
-	document.querySelector('#preview').innerHTML = marked(document.querySelector('#editor').value, {
+	document.querySelector('#preview').innerHTML = marked.parse(document.querySelector('#editor').value, {
 		renderer: renderer,
 		gfm: true,
 		breaks: true
